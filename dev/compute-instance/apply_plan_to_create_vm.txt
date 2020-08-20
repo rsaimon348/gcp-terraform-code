@@ -1,0 +1,220 @@
+terraform apply
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # google_compute_instance.default["app-01"] will be created
+  + resource "google_compute_instance" "default" {
+      + can_ip_forward          = false
+      + cpu_platform            = (known after apply)
+      + current_status          = (known after apply)
+      + deletion_protection     = false
+      + guest_accelerator       = (known after apply)
+      + id                      = (known after apply)
+      + instance_id             = (known after apply)
+      + label_fingerprint       = (known after apply)
+      + machine_type            = "f1-micro"
+      + metadata                = {
+          + "ssh-keys" = "saimon:for server 1\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5ld4sT7Y+1EPgCojO70sxUO5pw55Nw+a7glMfw+YX5ChsJCvcN2/l+F5brip811WIMMzGl7xCKIlZWsQ38wAz/ZLA04uNz7oT9V8S39ClIrO/UueSXOgrLzj4IJmysaOX8qSIZ5yX92aQl/vbFa91NuBWaWm8YDweh2Tc+bRtxrRrxFNYwYhoaN2qjjxcL6jEPm2Dmtcqgxb2vv0WuwkOc/IkQQNoJ4wXZQvtrmN+kMj3pwmXi9vP6aGjDj22bdGEi6gEApPr2Yxyzlu74Qy1nAQtaMLTRaYSTBt/ZzfNrh/t/0w4YqszHV0HGb4xOLXLT+OwYOQnn2D1XXrH4QOl saimon@sMacBook.local\n\n"
+        }
+      + metadata_fingerprint    = (known after apply)
+      + metadata_startup_script = "#!/bin/bash\napt-get update -y\napt-get install apache2 -y\napt-get install mysql-server -y\n#apt install php libapache2-mod-php -y\necho \"I am from $(hostname)\" > /var/www/html/index.html\nmysql -u root -h 10.249.0.3 -p\"Sa961419!\" -e 'show processlist' >> /var/www/html/index.html\nsystemctl restart apache2\n"
+      + min_cpu_platform        = (known after apply)
+      + name                    = "backend-app-01"
+      + project                 = (known after apply)
+      + self_link               = (known after apply)
+      + tags                    = [
+          + "app-01",
+        ]
+      + tags_fingerprint        = (known after apply)
+      + zone                    = "us-central1-a"
+
+      + boot_disk {
+          + auto_delete                = true
+          + device_name                = (known after apply)
+          + disk_encryption_key_sha256 = (known after apply)
+          + kms_key_self_link          = (known after apply)
+          + mode                       = "READ_WRITE"
+          + source                     = (known after apply)
+
+          + initialize_params {
+              + image  = "debian-cloud/debian-9"
+              + labels = (known after apply)
+              + size   = (known after apply)
+              + type   = (known after apply)
+            }
+        }
+
+      + network_interface {
+          + name               = (known after apply)
+          + network            = "dev-vpc"
+          + network_ip         = (known after apply)
+          + subnetwork         = "private-subnet-uscentral1"
+          + subnetwork_project = (known after apply)
+        }
+
+      + scheduling {
+          + automatic_restart   = (known after apply)
+          + on_host_maintenance = (known after apply)
+          + preemptible         = (known after apply)
+
+          + node_affinities {
+              + key      = (known after apply)
+              + operator = (known after apply)
+              + values   = (known after apply)
+            }
+        }
+    }
+
+  # google_compute_instance.default["app-02"] will be created
+  + resource "google_compute_instance" "default" {
+      + can_ip_forward          = false
+      + cpu_platform            = (known after apply)
+      + current_status          = (known after apply)
+      + deletion_protection     = false
+      + guest_accelerator       = (known after apply)
+      + id                      = (known after apply)
+      + instance_id             = (known after apply)
+      + label_fingerprint       = (known after apply)
+      + machine_type            = "f1-micro"
+      + metadata                = {
+          + "ssh-keys" = "saimon:for server 2\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5ld4sT7Y+1EPgCojO70sxUO5pw55Nw+a7glMfw+YX5ChsJCvcN2/l+F5brip811WIMMzGl7xCKIlZWsQ38wAz/ZLA04uNz7oT9V8S39ClIrO/UueSXOgrLzj4IJmysaOX8qSIZ5yX92aQl/vbFa91NuBWaWm8YDweh2Tc+bRtxrRrxFNYwYhoaN2qjjxcL6jEPm2Dmtcqgxb2vv0WuwkOc/IkQQNoJ4wXZQvtrmN+kMj3pwmXi9vP6aGjDj22bdGEi6gEApPr2Yxyzlu74Qy1nAQtaMLTRaYSTBt/ZzfNrh/t/0w4YqszHV0HGb4xOLXLT+OwYOQnn2D1XXrH4QOl saimon@sMacBook.local\n"
+        }
+      + metadata_fingerprint    = (known after apply)
+      + metadata_startup_script = "#!/bin/bash\napt-get update -y\napt-get install apache2 -y\napt-get install mysql-server -y\n#apt install php libapache2-mod-php -y\necho \"I am from $(hostname)\" > /var/www/html/index.html\nmysql -u root -h 10.249.0.3 -p\"Sa961419!\" -e 'show processlist' >> /var/www/html/index.html\nsystemctl restart apache2\n"
+      + min_cpu_platform        = (known after apply)
+      + name                    = "backend-app-02"
+      + project                 = (known after apply)
+      + self_link               = (known after apply)
+      + tags                    = [
+          + "app-02",
+        ]
+      + tags_fingerprint        = (known after apply)
+      + zone                    = "us-central1-b"
+
+      + boot_disk {
+          + auto_delete                = true
+          + device_name                = (known after apply)
+          + disk_encryption_key_sha256 = (known after apply)
+          + kms_key_self_link          = (known after apply)
+          + mode                       = "READ_WRITE"
+          + source                     = (known after apply)
+
+          + initialize_params {
+              + image  = "debian-cloud/debian-9"
+              + labels = (known after apply)
+              + size   = (known after apply)
+              + type   = (known after apply)
+            }
+        }
+
+      + network_interface {
+          + name               = (known after apply)
+          + network            = "dev-vpc"
+          + network_ip         = (known after apply)
+          + subnetwork         = "private-subnet-uscentral1"
+          + subnetwork_project = (known after apply)
+        }
+
+      + scheduling {
+          + automatic_restart   = (known after apply)
+          + on_host_maintenance = (known after apply)
+          + preemptible         = (known after apply)
+
+          + node_affinities {
+              + key      = (known after apply)
+              + operator = (known after apply)
+              + values   = (known after apply)
+            }
+        }
+    }
+
+  # google_compute_instance.default["app-03"] will be created
+  + resource "google_compute_instance" "default" {
+      + can_ip_forward          = false
+      + cpu_platform            = (known after apply)
+      + current_status          = (known after apply)
+      + deletion_protection     = false
+      + guest_accelerator       = (known after apply)
+      + id                      = (known after apply)
+      + instance_id             = (known after apply)
+      + label_fingerprint       = (known after apply)
+      + machine_type            = "f1-micro"
+      + metadata                = {
+          + "ssh-keys" = "saimon:for server 3\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5ld4sT7Y+1EPgCojO70sxUO5pw55Nw+a7glMfw+YX5ChsJCvcN2/l+F5brip811WIMMzGl7xCKIlZWsQ38wAz/ZLA04uNz7oT9V8S39ClIrO/UueSXOgrLzj4IJmysaOX8qSIZ5yX92aQl/vbFa91NuBWaWm8YDweh2Tc+bRtxrRrxFNYwYhoaN2qjjxcL6jEPm2Dmtcqgxb2vv0WuwkOc/IkQQNoJ4wXZQvtrmN+kMj3pwmXi9vP6aGjDj22bdGEi6gEApPr2Yxyzlu74Qy1nAQtaMLTRaYSTBt/ZzfNrh/t/0w4YqszHV0HGb4xOLXLT+OwYOQnn2D1XXrH4QOl saimon@sMacBook.local\n"
+        }
+      + metadata_fingerprint    = (known after apply)
+      + metadata_startup_script = "#!/bin/bash\napt-get update -y\napt-get install apache2 -y\napt-get install mysql-server -y\n#apt install php libapache2-mod-php -y\necho \"I am from $(hostname)\" > /var/www/html/index.html\nmysql -u root -h 10.249.0.3 -p\"Sa961419!\" -e 'show processlist' >> /var/www/html/index.html\nsystemctl restart apache2\n"
+      + min_cpu_platform        = (known after apply)
+      + name                    = "backend-app-03"
+      + project                 = (known after apply)
+      + self_link               = (known after apply)
+      + tags                    = [
+          + "app-03",
+        ]
+      + tags_fingerprint        = (known after apply)
+      + zone                    = "us-central1-c"
+
+      + boot_disk {
+          + auto_delete                = true
+          + device_name                = (known after apply)
+          + disk_encryption_key_sha256 = (known after apply)
+          + kms_key_self_link          = (known after apply)
+          + mode                       = "READ_WRITE"
+          + source                     = (known after apply)
+
+          + initialize_params {
+              + image  = "debian-cloud/debian-9"
+              + labels = (known after apply)
+              + size   = (known after apply)
+              + type   = (known after apply)
+            }
+        }
+
+      + network_interface {
+          + name               = (known after apply)
+          + network            = "dev-vpc"
+          + network_ip         = (known after apply)
+          + subnetwork         = "private-subnet-uscentral1"
+          + subnetwork_project = (known after apply)
+        }
+
+      + scheduling {
+          + automatic_restart   = (known after apply)
+          + on_host_maintenance = (known after apply)
+          + preemptible         = (known after apply)
+
+          + node_affinities {
+              + key      = (known after apply)
+              + operator = (known after apply)
+              + values   = (known after apply)
+            }
+        }
+    }
+
+Plan: 3 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+google_compute_instance.default["app-01"]: Creating...
+google_compute_instance.default["app-03"]: Creating...
+google_compute_instance.default["app-02"]: Creating...
+google_compute_instance.default["app-01"]: Still creating... [10s elapsed]
+google_compute_instance.default["app-02"]: Still creating... [10s elapsed]
+google_compute_instance.default["app-03"]: Still creating... [10s elapsed]
+google_compute_instance.default["app-01"]: Creation complete after 15s [id=projects/gcp-learning-283803/zones/us-central1-a/instances/backend-app-01]
+google_compute_instance.default["app-03"]: Creation complete after 15s [id=projects/gcp-learning-283803/zones/us-central1-c/instances/backend-app-03]
+google_compute_instance.default["app-02"]: Creation complete after 15s [id=projects/gcp-learning-283803/zones/us-central1-b/instances/backend-app-02]
+
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+sMacBook:compute-instance saimon$ ls
+main.tf				terraform.tfstate		version.tf
+output.tf			terraform.tfstate.backup
+startup.sh			variable.tf
