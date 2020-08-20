@@ -1,0 +1,32 @@
+curl 34.121.213.68
+I am from backend-app-03
+Id	User	Host	db	Command	Time	State	Info
+3	root	localhost	NULL	Sleep	18		NULL
+5	root	localhost	NULL	Sleep	11		NULL
+18	root	localhost	NULL	Sleep	1		NULL
+175	root	localhost	NULL	Sleep	3		NULL
+181	root	192.168.1.4:36390	NULL	Query	0	init	show processlist
+sMacBook:tcp-lb saimon$ curl 34.121.213.68
+I am from backend-app-02
+Id	User	Host	db	Command	Time	State	Info
+3	root	localhost	NULL	Sleep	18		NULL
+5	root	localhost	NULL	Sleep	11		NULL
+18	root	localhost	NULL	Sleep	1		NULL
+175	root	localhost	NULL	Sleep	3		NULL
+182	root	192.168.1.2:42646	NULL	Query	0	init	show processlist
+sMacBook:tcp-lb saimon$ curl 34.121.213.68
+I am from backend-app-02
+Id	User	Host	db	Command	Time	State	Info
+3	root	localhost	NULL	Sleep	18		NULL
+5	root	localhost	NULL	Sleep	11		NULL
+18	root	localhost	NULL	Sleep	1		NULL
+175	root	localhost	NULL	Sleep	3		NULL
+182	root	192.168.1.2:42646	NULL	Query	0	init	show processlist
+sMacBook:tcp-lb saimon$ curl 34.121.213.68
+I am from backend-app-01
+Id	User	Host	db	Command	Time	State	Info
+3	root	localhost	NULL	Sleep	20		NULL
+5	root	localhost	NULL	Sleep	13		NULL
+18	root	localhost	NULL	Sleep	1		NULL
+175	root	localhost	NULL	Sleep	5		NULL
+183	root	192.168.1.3:44286	NULL	Query	0	init	show processlist
