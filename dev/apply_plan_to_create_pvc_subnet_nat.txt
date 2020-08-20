@@ -1,0 +1,117 @@
+terraform apply 
+var.project_id
+  Project ID under which resourcess to be created
+
+  Enter a value: gcp-learning-283803
+
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.cloud_nat.google_compute_router.cloud_router will be created
+  + resource "google_compute_router" "cloud_router" {
+      + creation_timestamp = (known after apply)
+      + id                 = (known after apply)
+      + name               = "my-test-router"
+      + network            = "dev-vpc"
+      + project            = "gcp-learning-283803"
+      + region             = "us-central1"
+      + self_link          = (known after apply)
+
+      + bgp {
+          + advertise_mode = "DEFAULT"
+          + asn            = 64514
+        }
+    }
+
+  # module.cloud_nat.google_compute_router_nat.nat will be created
+  + resource "google_compute_router_nat" "nat" {
+      + icmp_idle_timeout_sec              = 30
+      + id                                 = (known after apply)
+      + name                               = "dev-nat-for-private-subnet"
+      + nat_ip_allocate_option             = "AUTO_ONLY"
+      + project                            = "gcp-learning-283803"
+      + region                             = "us-central1"
+      + router                             = "my-test-router"
+      + source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+      + tcp_established_idle_timeout_sec   = 1200
+      + tcp_transitory_idle_timeout_sec    = 30
+      + udp_idle_timeout_sec               = 30
+    }
+
+  # module.subnet.google_compute_subnetwork.create_subnet["private-subnet-uscentral1"] will be created
+  + resource "google_compute_subnetwork" "create_subnet" {
+      + creation_timestamp = (known after apply)
+      + enable_flow_logs   = (known after apply)
+      + fingerprint        = (known after apply)
+      + gateway_address    = (known after apply)
+      + id                 = (known after apply)
+      + ip_cidr_range      = "192.168.1.0/28"
+      + name               = "private-subnet-uscentral1"
+      + network            = "dev-vpc"
+      + project            = "gcp-learning-283803"
+      + region             = "us-central1"
+      + secondary_ip_range = (known after apply)
+      + self_link          = (known after apply)
+    }
+
+  # module.subnet.google_compute_subnetwork.create_subnet["public-subnet-usewest1"] will be created
+  + resource "google_compute_subnetwork" "create_subnet" {
+      + creation_timestamp = (known after apply)
+      + enable_flow_logs   = (known after apply)
+      + fingerprint        = (known after apply)
+      + gateway_address    = (known after apply)
+      + id                 = (known after apply)
+      + ip_cidr_range      = "192.168.2.0/28"
+      + name               = "public-subnet-usewest1"
+      + network            = "dev-vpc"
+      + project            = "gcp-learning-283803"
+      + region             = "us-west1"
+      + secondary_ip_range = (known after apply)
+      + self_link          = (known after apply)
+    }
+
+  # module.vpc.google_compute_network.create_vpc will be created
+  + resource "google_compute_network" "create_vpc" {
+      + auto_create_subnetworks         = false
+      + delete_default_routes_on_create = false
+      + gateway_ipv4                    = (known after apply)
+      + id                              = (known after apply)
+      + ipv4_range                      = (known after apply)
+      + name                            = "dev-vpc"
+      + project                         = "gcp-learning-283803"
+      + routing_mode                    = "GLOBAL"
+      + self_link                       = (known after apply)
+    }
+
+Plan: 5 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+module.vpc.google_compute_network.create_vpc: Creating...
+module.vpc.google_compute_network.create_vpc: Still creating... [10s elapsed]
+module.vpc.google_compute_network.create_vpc: Still creating... [20s elapsed]
+module.vpc.google_compute_network.create_vpc: Creation complete after 23s [id=projects/gcp-learning-283803/global/networks/dev-vpc]
+module.cloud_nat.google_compute_router.cloud_router: Creating...
+module.subnet.google_compute_subnetwork.create_subnet["public-subnet-usewest1"]: Creating...
+module.subnet.google_compute_subnetwork.create_subnet["private-subnet-uscentral1"]: Creating...
+module.subnet.google_compute_subnetwork.create_subnet["public-subnet-usewest1"]: Still creating... [10s elapsed]
+module.subnet.google_compute_subnetwork.create_subnet["private-subnet-uscentral1"]: Still creating... [10s elapsed]
+module.cloud_nat.google_compute_router.cloud_router: Still creating... [10s elapsed]
+module.cloud_nat.google_compute_router.cloud_router: Creation complete after 12s [id=projects/gcp-learning-283803/regions/us-central1/routers/my-test-router]
+module.cloud_nat.google_compute_router_nat.nat: Creating...
+module.subnet.google_compute_subnetwork.create_subnet["public-subnet-usewest1"]: Still creating... [20s elapsed]
+module.subnet.google_compute_subnetwork.create_subnet["private-subnet-uscentral1"]: Still creating... [20s elapsed]
+module.cloud_nat.google_compute_router_nat.nat: Still creating... [10s elapsed]
+module.subnet.google_compute_subnetwork.create_subnet["private-subnet-uscentral1"]: Creation complete after 23s [id=projects/gcp-learning-283803/regions/us-central1/subnetworks/private-subnet-uscentral1]
+module.subnet.google_compute_subnetwork.create_subnet["public-subnet-usewest1"]: Creation complete after 23s [id=projects/gcp-learning-283803/regions/us-west1/subnetworks/public-subnet-usewest1]
+module.cloud_nat.google_compute_router_nat.nat: Creation complete after 13s [id=gcp-learning-283803/us-central1/my-test-router/dev-nat-for-private-subnet]
+
+Apply complete! Resources: 5 added, 0 changed, 0 destroyed.
